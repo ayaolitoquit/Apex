@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://1lg8ib5cej5p"]
+
+[ext_resource type="Texture2D" uid="uid://cdqsjp6y1l4wy" path="res://assets/DogIdle.png" id="1_1spge"]
+[ext_resource type="Script" path="res://Scripts/enemy_dog.gd" id="1_heemb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r62kq"]
+radius = 14.1421
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y73y1"]
+radius = 56.5685
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqv44"]
+atlas = ExtResource("1_1spge")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj2bp"]
+atlas = ExtResource("1_1spge")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sljkd"]
+atlas = ExtResource("1_1spge")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_werv2"]
+atlas = ExtResource("1_1spge")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_up0nw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqv44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj2bp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sljkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_werv2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyDog" type="CharacterBody2D"]
+position = Vector2(19, 16)
+script = ExtResource("1_heemb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(122, 2)
+shape = SubResource("CircleShape2D_r62kq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(121, 1)
+shape = SubResource("CircleShape2D_y73y1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(127, -10)
+sprite_frames = SubResource("SpriteFrames_up0nw")
+autoplay = "default"
+frame_progress = 0.0172866
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
