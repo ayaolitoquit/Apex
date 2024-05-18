@@ -762,8 +762,13 @@ texture = ExtResource("2_ucog1")
 [sub_resource type="TileSet" id="TileSet_lvuu1"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_2g366")
+[gd_scene load_steps=3 format=3 uid="uid://bf0x78ltimipf"]
+
+[ext_resource type="PackedScene" uid="uid://dghqpekn15ynf" path="res://scenes/player.tscn" id="1_jbukl"]
+[ext_resource type="PackedScene" uid="uid://no2gfthy1ipt" path="res://scenes/Egg.tscn" id="2_qys3q"]
 
 [node name="Game" type="Node2D"]
+position = Vector2(195, 134)
 
 [node name="player" parent="." instance=ExtResource("1_jbukl")]
 
@@ -779,3 +784,5 @@ layer_1/tile_data = PackedInt32Array(196608, 655361, 3, 262144, 1179649, 2, 3276
 layer_2/name = "Mud"
 layer_2/z_index = -5
 layer_2/tile_data = PackedInt32Array(2228248, 458753, 2, 2293784, 458753, 3, 2359320, 458753, 4, 2228249, 524289, 2, 2293785, 524289, 3, 2359321, 524289, 4, 2424857, 524289, 5, 2228250, 589825, 2, 2293786, 589825, 3, 2359322, 589825, 4, 2424858, 589825, 5, 2228247, 393217, 2, 2293783, 393217, 3, 2359319, 393217, 4, 2424856, 458753, 5)
+[node name="Area2D" parent="." instance=ExtResource("2_qys3q")]
+position = Vector2(33, 1)
