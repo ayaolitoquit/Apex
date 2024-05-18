@@ -1,50 +1,74 @@
-[gd_scene load_steps=9 format=3 uid="uid://no2gfthy1ipt"]
+[gd_scene load_steps=11 format=3 uid="uid://61vt28okcxpq"]
 
 [ext_resource type="Texture2D" uid="uid://crfs6vxbx4vn4" path="res://assets/EGG1.png" id="1_piq63"]
 [ext_resource type="Texture2D" uid="uid://bgglpsivgbsjy" path="res://assets/EGG3.png" id="2_b36w3"]
 [ext_resource type="Texture2D" uid="uid://b6hg3so5vvw7o" path="res://assets/EGG4.png" id="3_0ufcu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pamir"]
+[sub_resource type="GDScript" id="GDScript_pi8ge"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+
+
+func _on_body_entered(body):
+	pass # Replace with function body.
+	print (\"I got an egg\")
+	queue_free()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1jca"]
 atlas = ExtResource("1_piq63")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tn7ne"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7dww"]
 atlas = ExtResource("2_b36w3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0kpnt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghcfy"]
 atlas = ExtResource("3_0ufcu")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k6q8j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7curm"]
+atlas = ExtResource("2_b36w3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p87yh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pamir")
+"texture": SubResource("AtlasTexture_l1jca")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tn7ne")
+"texture": SubResource("AtlasTexture_o7dww")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0kpnt")
+"texture": SubResource("AtlasTexture_ghcfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7curm")
 }],
 "loop": true,
 "name": &"default",
-"speed": 7.5
+"speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mc6c3"]
-radius = 5.0
-height = 14.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_63e4f"]
+radius = 14.0
 
 [node name="Egg" type="Area2D"]
+scale = Vector2(0.399999, 0.439999)
+collision_mask = 2
+script = SubResource("GDScript_pi8ge")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.400001, 0.52)
-sprite_frames = SubResource("SpriteFrames_k6q8j")
+scale = Vector2(1, 0.994533)
+sprite_frames = SubResource("SpriteFrames_p87yh")
 autoplay = "default"
-frame_progress = 0.810114
+frame_progress = 0.916432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_mc6c3")
+shape = SubResource("CapsuleShape2D_63e4f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
