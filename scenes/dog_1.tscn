@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/dog_1.gd" id="1_nj73c"]
 [ext_resource type="Texture2D" uid="uid://tqpaasfotr25" path="res://assets/DogWalk.png" id="2_46tmp"]
-[ext_resource type="PackedScene" uid="uid://bnd0lx5n2x3ik" path="res://scenes/killzone.tscn" id="2_raohn"]
+[ext_resource type="PackedScene" uid="uid://dwoqbuprnwqe8" path="res://scenes/killzone.tscn" id="2_raohn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1eib"]
 atlas = ExtResource("2_46tmp")

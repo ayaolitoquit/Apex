@@ -1,7 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://dghqpekn15ynf"]
+[gd_scene load_steps=33 format=3 uid="uid://dghqpekn15ynf"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_eid4o"]
 [ext_resource type="Texture2D" uid="uid://bvw01g05y71gk" path="res://assets/manok-pngformat2.png" id="2_d0rqv"]
+[ext_resource type="Texture2D" uid="uid://3k0nkekulk3t" path="res://assets/DeadManok.png" id="2_j0bbh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6p4b"]
+atlas = ExtResource("2_j0bbh")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at5l6"]
 atlas = ExtResource("2_d0rqv")
@@ -109,6 +114,14 @@ region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ugpwl"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6p4b")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_at5l6")
@@ -233,7 +246,7 @@ script = ExtResource("1_eid4o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ugpwl")
-animation = &"walk_up"
+animation = &"Dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 4)
@@ -242,4 +255,5 @@ shape = SubResource("CircleShape2D_sfv07")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visibility_layer = 2
-zoom = Vector2(4, 4)
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

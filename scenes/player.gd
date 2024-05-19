@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-var max_speed = 150
+var max_speed = Global.max_speed
 const accel = 1000
 @onready var animations = $AnimatedSprite2D
+var is_alive = true
+
 
 var input = Vector2.ZERO
 
@@ -46,3 +48,8 @@ func _on_mud_body_entered(body):
 
 func _on_mud_body_exited(body):
 	max_speed = 150 # Replace with function body.
+	
+func die():
+	is_alive = false
+	$AnimatedSprite2D.play("dead")
+

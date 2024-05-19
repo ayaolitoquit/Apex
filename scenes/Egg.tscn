@@ -7,14 +7,33 @@
 [sub_resource type="GDScript" id="GDScript_pi8ge"]
 script/source = "extends Area2D
 
-
+var rng = RandomNumberGenerator.new()
+var array = [\"+50\",\"-20\", \"Better luck next time\"]
+var buff = rng.randi_range (0, 2)
 # Called when the node enters the scene tree for the first time.
-
 
 func _on_body_entered(body):
 	pass # Replace with function body.
 	print (\"I got an egg\")
+	print(buff)
 	queue_free()
+	powerUp()
+	
+func powerUp():
+	if buff == 0:
+		Global.max_speed += 50
+	elif buff == 1:
+		Global.max_speed -= 20
+	else:
+		Global.max_speed = 150
+	print (Global.max_speed)
+
+	
+
+
+
+	
+
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1jca"]
