@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-const max_speed = 300	
+var max_speed = 200
 const accel = 1000
-const friction = 600
 @onready var animations = $AnimatedSprite2D
 
 var input = Vector2.ZERO
@@ -39,3 +38,11 @@ func update_animation():
 		animations.play("walk_down")
 	else:
 		animations.play("idle")
+
+
+func _on_mud_body_entered(body):
+	max_speed = 75# Replace with function body.
+
+
+func _on_mud_body_exited(body):
+	max_speed = 200 # Replace with function body.

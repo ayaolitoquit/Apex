@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf0x78ltimipf"]
+[gd_scene load_steps=10 format=3 uid="uid://bf0x78ltimipf"]
 
 [ext_resource type="PackedScene" uid="uid://dghqpekn15ynf" path="res://scenes/player.tscn" id="1_jbukl"]
 [ext_resource type="PackedScene" uid="uid://61vt28okcxpq" path="res://scenes/Egg.tscn" id="2_qys3q"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dwoqbuprnwqe8" path="res://scenes/killzone.tscn" id="5_5u30q"]
 [ext_resource type="PackedScene" uid="uid://bg7tdrsvkp7ou" path="res://scenes/dogs.tscn" id="6_f7vtw"]
 [ext_resource type="PackedScene" uid="uid://c1s58o47r2bfb" path="res://assets/leveldesign.tscn" id="7_mchxp"]
+[ext_resource type="Texture2D" uid="uid://lixt3f6thy32" path="res://assets/mud.png" id="7_t8fnm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhl0l"]
+size = Vector2(64, 64)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6cnuo"]
 distance = -375.0
@@ -13,8 +17,20 @@ distance = -375.0
 [node name="Game" type="Node2D"]
 position = Vector2(195, 134)
 
+[node name="mud" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="mud"]
+texture_filter = 1
+position = Vector2(303, 634)
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
 [node name="player" parent="." instance=ExtResource("1_jbukl")]
 position = Vector2(-84, 666)
+collision_layer = 1
 
 [node name="Egg" parent="." instance=ExtResource("2_qys3q")]
 position = Vector2(-820, 661)
@@ -26,7 +42,7 @@ position = Vector2(-644, -122)
 position = Vector2(540, 72)
 
 [node name="EnemyDog" parent="." instance=ExtResource("3_inp1i")]
-position = Vector2(149, 695)
+position = Vector2(218, 554)
 
 [node name="Killzone" parent="." instance=ExtResource("5_5u30q")]
 position = Vector2(190, 411)
@@ -36,7 +52,10 @@ position = Vector2(36, 75)
 shape = SubResource("WorldBoundaryShape2D_6cnuo")
 
 [node name="Dogs" parent="." instance=ExtResource("6_f7vtw")]
-position = Vector2(27, 672)
+position = Vector2(61, 547)
 
 [node name="tile_map" parent="." instance=ExtResource("7_mchxp")]
 position = Vector2(-97, 58)
+
+[connection signal="body_entered" from="mud" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud" to="player" method="_on_mud_body_exited"]
