@@ -45,3 +45,7 @@ script = ExtResource("1_xf40y")
 [node name="Wheel" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j6aih")
 autoplay = "default"
+
+[node name="Hide Timer" type="Timer" parent="."]
+
+[connection signal="visibility_changed" from="Wheel" to="." method="_on_wheel_visibility_changed"]
