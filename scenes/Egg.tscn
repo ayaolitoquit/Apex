@@ -7,9 +7,7 @@
 [sub_resource type="GDScript" id="GDScript_pi8ge"]
 script/source = "extends Area2D
 
-var rng = RandomNumberGenerator.new()
-var array = [\"+50\",\"-20\", \"Better luck next time\"]
-var buff = rng.randi_range (0, 2)
+var buff = Global.buff
 # Called when the node enters the scene tree for the first time.
 
 func _on_body_entered(body):

@@ -255,5 +255,6 @@ shape = SubResource("CircleShape2D_sfv07")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visibility_layer = 2
+zoom = Vector2(2, 2)
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

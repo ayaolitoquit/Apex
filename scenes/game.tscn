@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf0x78ltimipf"]
+[gd_scene load_steps=10 format=3 uid="uid://bf0x78ltimipf"]
 
 [ext_resource type="PackedScene" uid="uid://dghqpekn15ynf" path="res://scenes/player.tscn" id="1_jbukl"]
 [ext_resource type="PackedScene" uid="uid://61vt28okcxpq" path="res://scenes/Egg.tscn" id="2_qys3q"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1s58o47r2bfb" path="res://assets/leveldesign.tscn" id="7_mchxp"]
 [ext_resource type="PackedScene" uid="uid://bq4qkburyuas6" path="res://scenes/Randomizer.tscn" id="7_q57ww"]
 [ext_resource type="Texture2D" uid="uid://lixt3f6thy32" path="res://assets/mud.png" id="7_t8fnm"]
+[ext_resource type="Script" path="res://scenes/PowerUp.gd" id="8_d2y8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhl0l"]
 size = Vector2(64, 64)
@@ -182,9 +183,22 @@ position = Vector2(-350, 360)
 [node name="Node2D" parent="." instance=ExtResource("7_q57ww")]
 position = Vector2(540, 44)
 
+[node name="PowerUp" type="CanvasLayer" parent="."]
+script = ExtResource("8_d2y8q")
+
+[node name="PowerUp" type="Label" parent="PowerUp"]
+offset_left = 478.0
+offset_top = 234.0
+offset_right = 617.0
+offset_bottom = 257.0
+text = "POWERRRRRRRRR"
+
 [connection signal="body_entered" from="Egg" to="HUD" method="_on_egg_body_entered"]
+[connection signal="body_entered" from="Egg" to="PowerUp" method="_on_egg_body_entered"]
 [connection signal="body_entered" from="Egg2" to="HUD" method="_on_egg_2_body_entered"]
+[connection signal="body_entered" from="Egg2" to="PowerUp" method="_on_egg_2_body_entered"]
 [connection signal="body_entered" from="Egg3" to="HUD" method="_on_egg_3_body_entered"]
+[connection signal="body_entered" from="Egg3" to="PowerUp" method="_on_egg_3_body_entered"]
 [connection signal="body_entered" from="mud group/mud" to="player" method="_on_mud_body_entered"]
 [connection signal="body_exited" from="mud group/mud" to="player" method="_on_mud_body_exited"]
 [connection signal="body_entered" from="mud group/mud2" to="player" method="_on_mud_body_entered"]
