@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://dghqpekn15ynf"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_eid4o"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_eid4o"]
 [ext_resource type="Texture2D" uid="uid://bvw01g05y71gk" path="res://assets/manok-pngformat2.png" id="2_d0rqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at5l6"]

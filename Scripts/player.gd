@@ -28,7 +28,7 @@ func chimcken_movement(delta):
 	move_and_slide()
 
 func update_animation():
-	var direction = "down"
+	var direction = "down"	
 	if input.x < 0:
 		animations.play("walk_left")
 	elif  input.x > 0:
