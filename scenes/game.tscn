@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf0x78ltimipf"]
+[gd_scene load_steps=8 format=3 uid="uid://bf0x78ltimipf"]
 
 [ext_resource type="PackedScene" uid="uid://dghqpekn15ynf" path="res://scenes/player.tscn" id="1_jbukl"]
 [ext_resource type="PackedScene" uid="uid://61vt28okcxpq" path="res://scenes/Egg.tscn" id="2_qys3q"]
 [ext_resource type="PackedScene" uid="uid://8tcp38jqgycd" path="res://scenes/dog_1.tscn" id="6_bjl4f"]
-[ext_resource type="PackedScene" path="res://assets/leveldesign.tscn" id="7_mchxp"]
+[ext_resource type="PackedScene" uid="uid://s2ymm2a1v4ng" path="res://scenes/hud.tscn" id="6_nq0di"]
+[ext_resource type="PackedScene" uid="uid://c1s58o47r2bfb" path="res://assets/leveldesign.tscn" id="7_mchxp"]
 [ext_resource type="Texture2D" uid="uid://lixt3f6thy32" path="res://assets/mud.png" id="7_t8fnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhl0l"]
@@ -175,6 +176,11 @@ position = Vector2(183, 43)
 [node name="dog9" parent="dog group" instance=ExtResource("6_bjl4f")]
 position = Vector2(-350, 360)
 
+[node name="HUD" parent="." instance=ExtResource("6_nq0di")]
+
+[connection signal="body_entered" from="Egg" to="HUD" method="_on_egg_body_entered"]
+[connection signal="body_entered" from="Egg2" to="HUD" method="_on_egg_2_body_entered"]
+[connection signal="body_entered" from="Egg3" to="HUD" method="_on_egg_3_body_entered"]
 [connection signal="body_entered" from="mud group/mud" to="player" method="_on_mud_body_entered"]
 [connection signal="body_exited" from="mud group/mud" to="player" method="_on_mud_body_exited"]
 [connection signal="body_entered" from="mud group/mud2" to="player" method="_on_mud_body_entered"]
