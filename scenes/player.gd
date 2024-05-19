@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var max_speed = 200
+var max_speed = 150
 const accel = 1000
 @onready var animations = $AnimatedSprite2D
 
@@ -41,8 +41,8 @@ func update_animation():
 
 
 func _on_mud_body_entered(body):
-	max_speed = 75# Replace with function body.
+	max_speed = 50# Replace with function body.
 
 
 func _on_mud_body_exited(body):
-	max_speed = 200 # Replace with function body.
+	max_speed = 150 # Replace with function body.

@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://8tcp38jqgycd"]
+
+[ext_resource type="Texture2D" uid="uid://cdqsjp6y1l4wy" path="res://assets/DogIdle.png" id="1_3iquh"]
+[ext_resource type="PackedScene" uid="uid://bnd0lx5n2x3ik" path="res://scenes/killzone.tscn" id="2_raohn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw7vq"]
+atlas = ExtResource("1_3iquh")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cosps"]
+atlas = ExtResource("1_3iquh")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oypw5"]
+atlas = ExtResource("1_3iquh")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67jpt"]
+atlas = ExtResource("1_3iquh")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptyqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw7vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cosps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oypw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67jpt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvhop"]
+radius = 16.0
+
+[node name="dog1" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ptyqf")
+autoplay = "default"
+frame_progress = 0.364221
+
+[node name="Killzone" parent="AnimatedSprite2D" instance=ExtResource("2_raohn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone"]
+position = Vector2(-5, 9)
+shape = SubResource("CircleShape2D_qvhop")
