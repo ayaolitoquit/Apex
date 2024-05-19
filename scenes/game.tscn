@@ -12,30 +12,8 @@ size = Vector2(64, 64)
 [node name="Game" type="Node2D"]
 position = Vector2(195, 134)
 
-[node name="mud" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="mud"]
-texture_filter = 1
-position = Vector2(303, 634)
-texture = ExtResource("7_t8fnm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mud"]
-position = Vector2(303, 634)
-shape = SubResource("RectangleShape2D_rhl0l")
-
-[node name="mud2" type="Area2D" parent="."]
-position = Vector2(-274, 31)
-
-[node name="Sprite2D" type="Sprite2D" parent="mud2"]
-texture_filter = 1
-position = Vector2(303, 634)
-texture = ExtResource("7_t8fnm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mud2"]
-position = Vector2(303, 634)
-shape = SubResource("RectangleShape2D_rhl0l")
-
 [node name="player" parent="." instance=ExtResource("1_jbukl")]
+z_index = 1
 position = Vector2(-84, 666)
 collision_layer = 3
 
@@ -51,10 +29,167 @@ position = Vector2(540, 72)
 [node name="tile_map" parent="." instance=ExtResource("7_mchxp")]
 position = Vector2(-97, 58)
 
-[node name="dog1" parent="." instance=ExtResource("6_bjl4f")]
-position = Vector2(100, 637)
+[node name="mud group" type="Node" parent="."]
 
-[connection signal="body_entered" from="mud" to="player" method="_on_mud_body_entered"]
-[connection signal="body_exited" from="mud" to="player" method="_on_mud_body_exited"]
-[connection signal="body_entered" from="mud2" to="player" method="_on_mud_body_entered"]
-[connection signal="body_exited" from="mud2" to="player" method="_on_mud_body_exited"]
+[node name="mud" type="Area2D" parent="mud group"]
+position = Vector2(195, 134)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud"]
+texture_filter = 1
+position = Vector2(303, 634)
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud2" type="Area2D" parent="mud group"]
+position = Vector2(-173, 170)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud2"]
+texture_filter = 1
+position = Vector2(303, 634)
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud2"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud3" type="Area2D" parent="mud group"]
+position = Vector2(377, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud3"]
+texture_filter = 1
+position = Vector2(303, 634)
+rotation = 1.40164
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud3"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud4" type="Area2D" parent="mud group"]
+position = Vector2(-15, -373)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud4"]
+texture_filter = 1
+position = Vector2(303, 634)
+rotation = 1.40164
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud4"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud5" type="Area2D" parent="mud group"]
+position = Vector2(-107, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud5"]
+texture_filter = 1
+position = Vector2(303, 634)
+rotation = -0.502065
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud5"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud6" type="Area2D" parent="mud group"]
+position = Vector2(-391, -187)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud6"]
+texture_filter = 1
+position = Vector2(302, 634)
+rotation = -0.0727403
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud6"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud7" type="Area2D" parent="mud group"]
+position = Vector2(-627, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud7"]
+texture_filter = 1
+position = Vector2(302, 634)
+rotation = -0.0727403
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud7"]
+position = Vector2(303, 634)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud8" type="Area2D" parent="mud group"]
+position = Vector2(52, -668)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud8"]
+texture_filter = 1
+position = Vector2(314, 634)
+rotation = -1.62374
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud8"]
+position = Vector2(313, 633)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="mud9" type="Area2D" parent="mud group"]
+position = Vector2(-509, -665)
+
+[node name="Sprite2D" type="Sprite2D" parent="mud group/mud9"]
+texture_filter = 1
+position = Vector2(314, 634)
+rotation = 0.0372453
+texture = ExtResource("7_t8fnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mud group/mud9"]
+position = Vector2(313, 632)
+shape = SubResource("RectangleShape2D_rhl0l")
+
+[node name="dog group" type="Node" parent="."]
+
+[node name="dog1" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(-445, 805)
+
+[node name="dog2" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(-103, 548)
+
+[node name="dog3" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(-402, 595)
+
+[node name="dog4" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(-535, 230)
+
+[node name="dog5" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(441, -57)
+
+[node name="dog8" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(441, -57)
+
+[node name="dog6" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(-271, -25)
+
+[node name="dog7" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(183, 43)
+
+[node name="dog9" parent="dog group" instance=ExtResource("6_bjl4f")]
+position = Vector2(-350, 360)
+
+[connection signal="body_entered" from="mud group/mud" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud2" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud2" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud3" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud3" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud4" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud4" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud5" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud5" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud6" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud6" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud7" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud7" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud8" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud8" to="player" method="_on_mud_body_exited"]
+[connection signal="body_entered" from="mud group/mud9" to="player" method="_on_mud_body_entered"]
+[connection signal="body_exited" from="mud group/mud9" to="player" method="_on_mud_body_exited"]
