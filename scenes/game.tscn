@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf0x78ltimipf"]
+[gd_scene load_steps=9 format=3 uid="uid://bf0x78ltimipf"]
 
 [ext_resource type="PackedScene" uid="uid://dghqpekn15ynf" path="res://scenes/player.tscn" id="1_jbukl"]
 [ext_resource type="PackedScene" uid="uid://61vt28okcxpq" path="res://scenes/Egg.tscn" id="2_qys3q"]
 [ext_resource type="PackedScene" uid="uid://8tcp38jqgycd" path="res://scenes/dog_1.tscn" id="6_bjl4f"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="6_nq0di"]
-[ext_resource type="PackedScene" path="res://assets/leveldesign.tscn" id="7_mchxp"]
+[ext_resource type="PackedScene" uid="uid://s2ymm2a1v4ng" path="res://scenes/hud.tscn" id="6_nq0di"]
+[ext_resource type="PackedScene" uid="uid://c1s58o47r2bfb" path="res://assets/leveldesign.tscn" id="7_mchxp"]
+[ext_resource type="PackedScene" uid="uid://bq4qkburyuas6" path="res://scenes/Randomizer.tscn" id="7_q57ww"]
 [ext_resource type="Texture2D" uid="uid://lixt3f6thy32" path="res://assets/mud.png" id="7_t8fnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhl0l"]
@@ -177,6 +178,9 @@ position = Vector2(183, 43)
 position = Vector2(-350, 360)
 
 [node name="HUD" parent="." instance=ExtResource("6_nq0di")]
+
+[node name="Node2D" parent="." instance=ExtResource("7_q57ww")]
+position = Vector2(540, 44)
 
 [connection signal="body_entered" from="Egg" to="HUD" method="_on_egg_body_entered"]
 [connection signal="body_entered" from="Egg2" to="HUD" method="_on_egg_2_body_entered"]
