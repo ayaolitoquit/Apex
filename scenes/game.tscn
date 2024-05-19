@@ -1,30 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf0x78ltimipf"]
+[gd_scene load_steps=8 format=3 uid="uid://bf0x78ltimipf"]
 
 [ext_resource type="PackedScene" uid="uid://dghqpekn15ynf" path="res://scenes/player.tscn" id="1_jbukl"]
 [ext_resource type="PackedScene" uid="uid://61vt28okcxpq" path="res://scenes/Egg.tscn" id="2_qys3q"]
 [ext_resource type="PackedScene" uid="uid://1lg8ib5cej5p" path="res://scenes/enemy_dog.tscn" id="3_inp1i"]
-[ext_resource type="PackedScene" path="res://assets/tile_map.tscn" id="4_7ib4j"]
+[ext_resource type="PackedScene" uid="uid://dwoqbuprnwqe8" path="res://scenes/killzone.tscn" id="5_5u30q"]
+[ext_resource type="PackedScene" uid="uid://bg7tdrsvkp7ou" path="res://scenes/dogs.tscn" id="6_f7vtw"]
+[ext_resource type="PackedScene" uid="uid://c1s58o47r2bfb" path="res://assets/leveldesign.tscn" id="7_mchxp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6cnuo"]
+distance = -375.0
 
 [node name="Game" type="Node2D"]
 position = Vector2(195, 134)
 
 [node name="player" parent="." instance=ExtResource("1_jbukl")]
-position = Vector2(-110, 333)
+position = Vector2(-84, 666)
 
 [node name="Egg" parent="." instance=ExtResource("2_qys3q")]
-position = Vector2(43, -224)
+position = Vector2(-820, 661)
 
 [node name="Egg2" parent="." instance=ExtResource("2_qys3q")]
-position = Vector2(427, -253)
+position = Vector2(-644, -122)
 
 [node name="Egg3" parent="." instance=ExtResource("2_qys3q")]
-position = Vector2(-149, 28)
-
-[node name="Egg4" parent="." instance=ExtResource("2_qys3q")]
-position = Vector2(-48, -225)
+position = Vector2(540, 72)
 
 [node name="EnemyDog" parent="." instance=ExtResource("3_inp1i")]
-position = Vector2(-121, -150)
+position = Vector2(149, 695)
 
-[node name="TileMap" parent="." instance=ExtResource("4_7ib4j")]
-position = Vector2(-197, -271)
+[node name="Killzone" parent="." instance=ExtResource("5_5u30q")]
+position = Vector2(190, 411)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(36, 75)
+shape = SubResource("WorldBoundaryShape2D_6cnuo")
+
+[node name="Dogs" parent="." instance=ExtResource("6_f7vtw")]
+position = Vector2(27, 672)
+
+[node name="tile_map" parent="." instance=ExtResource("7_mchxp")]
+position = Vector2(-97, 58)

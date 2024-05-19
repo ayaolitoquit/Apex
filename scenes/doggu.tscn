@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhetfvks5cs4"]
+
+[ext_resource type="Texture2D" uid="uid://cdqsjp6y1l4wy" path="res://assets/DogIdle.png" id="1_kekim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgu5h"]
+atlas = ExtResource("1_kekim")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ntiw"]
+atlas = ExtResource("1_kekim")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7upm"]
+atlas = ExtResource("1_kekim")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjevj"]
+atlas = ExtResource("1_kekim")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ejduo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgu5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ntiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7upm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjevj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Doggu" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -25)
+sprite_frames = SubResource("SpriteFrames_ejduo")
+frame_progress = 0.80499

@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://bg7tdrsvkp7ou"]
+
+[ext_resource type="Script" path="res://Scripts/dogs.gd" id="1_llwsi"]
+[ext_resource type="Texture2D" uid="uid://cdqsjp6y1l4wy" path="res://assets/DogIdle.png" id="1_m2cgg"]
+[ext_resource type="PackedScene" uid="uid://dwoqbuprnwqe8" path="res://scenes/killzone.tscn" id="2_5vlnr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5vr6"]
+atlas = ExtResource("1_m2cgg")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4s8m"]
+atlas = ExtResource("1_m2cgg")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knnpi"]
+atlas = ExtResource("1_m2cgg")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5g7f"]
+atlas = ExtResource("1_m2cgg")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_juxaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5vr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4s8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knnpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5g7f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.5
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h68ad"]
+radius = 3.00146
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73wsj"]
+radius = 21.0238
+
+[node name="Dogs" type="Node2D"]
+script = ExtResource("1_llwsi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -24)
+sprite_frames = SubResource("SpriteFrames_juxaw")
+autoplay = "default"
+frame_progress = 0.198274
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -13)
+scale = Vector2(3.68, 3.68)
+shape = SubResource("CircleShape2D_h68ad")
+
+[node name="Killzone" parent="Area2D" instance=ExtResource("2_5vlnr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Killzone"]
+position = Vector2(3, -13)
+shape = SubResource("CircleShape2D_73wsj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
