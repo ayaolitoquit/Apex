@@ -193,6 +193,10 @@ offset_right = 617.0
 offset_bottom = 257.0
 text = "POWERRRRRRRRR"
 
+[node name="Timer" type="Timer" parent="PowerUp"]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="Egg" to="HUD" method="_on_egg_body_entered"]
 [connection signal="body_entered" from="Egg" to="PowerUp" method="_on_egg_body_entered"]
 [connection signal="body_entered" from="Egg2" to="HUD" method="_on_egg_2_body_entered"]
@@ -217,3 +221,4 @@ text = "POWERRRRRRRRR"
 [connection signal="body_exited" from="mud group/mud8" to="player" method="_on_mud_body_exited"]
 [connection signal="body_entered" from="mud group/mud9" to="player" method="_on_mud_body_entered"]
 [connection signal="body_exited" from="mud group/mud9" to="player" method="_on_mud_body_exited"]
+[connection signal="timeout" from="PowerUp/Timer" to="PowerUp" method="_on_timer_timeout"]
