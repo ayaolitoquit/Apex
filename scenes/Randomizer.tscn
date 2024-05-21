@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vc2fpxwewp3q"]
+[gd_scene load_steps=8 format=3 uid="uid://bq4qkburyuas6"]
 
 [ext_resource type="Script" path="res://Scripts/RandomBuffNerf.gd" id="1_xf40y"]
 [ext_resource type="Texture2D" uid="uid://id81uk6tsveq" path="res://assets/wheel.png" id="2_6pk7x"]

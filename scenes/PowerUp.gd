@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var timer = Timer.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -29,7 +29,6 @@ func _on_egg_body_entered(body):
 	else:
 		self.visible = false
 	
-	
 
 
 func _on_egg_2_body_entered(body):
@@ -48,7 +47,6 @@ func _on_egg_2_body_entered(body):
 	else:
 		self.visible = false
 		
-	
 
 
 func _on_egg_3_body_entered(body):
@@ -67,4 +65,9 @@ func _on_egg_3_body_entered(body):
 	else:
 		self.visible = false
 	
-	
+
+
+func _on_timer_timeout():
+	if self.visible == true:
+		self.visible = false
+		
